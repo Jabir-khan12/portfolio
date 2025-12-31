@@ -98,9 +98,21 @@
   }
 
   .glass-card {
-    background: hsl(220 20% 8% / 0.6);
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--border) / 0.5);
+    background: hsl(220 20% 8% / 0.8);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--border) / 0.6);
+    box-shadow: 
+      0 25px 50px -12px hsl(0 0% 0% / 0.4),
+      inset 0 1px 0 hsl(var(--foreground) / 0.05);
+  }
+
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-3d:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateZ(20px);
   }
 
   .hero-gradient {
