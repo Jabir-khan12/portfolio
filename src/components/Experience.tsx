@@ -5,7 +5,7 @@ import { Briefcase, Calendar, GraduationCap } from 'lucide-react';
 
 const experiences = [
   {
-    title: 'Full Stack Developer',
+    title: 'MERN Stack Developer',
     company: 'SAT Software House',
     period: 'Oct 2025 - Present',
     description: 'Working on full-stack development for Real Estate and Hire Expert projects, implementing user roles, property/job management, and dashboards.',
@@ -24,6 +24,14 @@ const experiences = [
     period: 'Jul 2025',
     description: 'Built a personal portfolio page and CRUD applications using HTML, CSS, JavaScript and React. Gained hands-on remote working experience.',
     current: false,
+  },
+];
+
+const education = [
+  {
+    title: 'BS in Computer Science',
+    institution: 'International Islamic University Islamabad',
+    period: '2019 - 2024',
   },
 ];
 
@@ -159,75 +167,111 @@ export default function Experience() {
   const isHeaderInView = useInView(headerRef, { once: true });
 
   return (
-    <section id="experience" className="relative py-32 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-[100px]" />
+    <>
+      {/* Education Section */}
+      <section id="education" className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-secondary/5 to-transparent rounded-full blur-[100px]" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <motion.div
-          ref={headerRef}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <motion.span 
-            initial={{ opacity: 0, y: 10 }}
-            animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="inline-block text-primary font-inter text-sm tracking-[0.3em] uppercase border border-primary/30 px-4 py-2 rounded-full"
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
           >
-            Career Journey
-          </motion.span>
-          <h2 className="font-syne text-4xl md:text-6xl font-bold mt-6">
-            Work <span className="text-gradient">Experience</span>
-          </h2>
-          <p className="font-inter text-muted-foreground text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
-            From learning to leading - my professional journey in web development
-          </p>
-        </motion.div>
-
-        {/* Education Badge with 3D effect */}
-        <motion.div
-          initial={{ opacity: 0, y: 30, rotateX: -10 }}
-          whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-          viewport={{ once: true }}
-          className="flex justify-center mb-20 perspective-1000"
-        >
-          <motion.div 
-            whileHover={{ scale: 1.02, rotateY: 5 }}
-            className="relative group"
-          >
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
-            <div className="relative bg-card/80 backdrop-blur border border-border/60 rounded-2xl px-8 py-5 inline-flex items-center gap-5 group-hover:border-primary/40 transition-colors">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                <GraduationCap className="w-7 h-7 text-primary" />
-              </div>
-              <div className="text-left">
-                <h4 className="font-syne font-bold text-foreground text-lg">BS in Computer Science</h4>
-                <p className="font-inter text-sm text-muted-foreground">
-                  International Islamic University Islamabad • 2019 - 2024
-                </p>
-              </div>
-            </div>
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="inline-block text-primary font-inter text-sm tracking-[0.3em] uppercase border border-primary/30 px-4 py-2 rounded-full"
+            >
+              Academic Background
+            </motion.span>
+            <h2 className="font-syne text-4xl md:text-6xl font-bold mt-6">
+              <span className="text-gradient">Education</span>
+            </h2>
           </motion.div>
-        </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Vertical Line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block">
-            <div className="w-full h-full bg-gradient-to-b from-primary/60 via-border to-border" />
-          </div>
-
-          <div className="space-y-12 md:space-y-16">
-            {experiences.map((experience, index) => (
-              <ExperienceCard3D key={index} experience={experience} index={index} />
+          <div className="flex justify-center">
+            {education.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30, rotateX: -10 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                viewport={{ once: true }}
+                className="perspective-1000"
+              >
+                <motion.div 
+                  whileHover={{ scale: 1.02, rotateY: 5 }}
+                  className="relative group"
+                >
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative bg-card/80 backdrop-blur border border-border/60 rounded-2xl px-8 py-5 inline-flex items-center gap-5 group-hover:border-primary/40 transition-colors">
+                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                      <GraduationCap className="w-7 h-7 text-primary" />
+                    </div>
+                    <div className="text-left">
+                      <h4 className="font-syne font-bold text-foreground text-lg">{edu.title}</h4>
+                      <p className="font-inter text-sm text-muted-foreground">
+                        {edu.institution} • {edu.period}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Work Experience Section */}
+      <section id="experience" className="relative py-32 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-card/30 to-background" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 to-transparent rounded-full blur-[100px]" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div
+            ref={headerRef}
+            initial={{ opacity: 0, y: 40 }}
+            animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-20"
+          >
+            <motion.span 
+              initial={{ opacity: 0, y: 10 }}
+              animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 }}
+              className="inline-block text-primary font-inter text-sm tracking-[0.3em] uppercase border border-primary/30 px-4 py-2 rounded-full"
+            >
+              Career Journey
+            </motion.span>
+            <h2 className="font-syne text-4xl md:text-6xl font-bold mt-6">
+              Work <span className="text-gradient">Experience</span>
+            </h2>
+            <p className="font-inter text-muted-foreground text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+              From learning to leading - my professional journey in web development
+            </p>
+          </motion.div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Vertical Line */}
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px hidden md:block">
+              <div className="w-full h-full bg-gradient-to-b from-primary/60 via-border to-border" />
+            </div>
+
+            <div className="space-y-12 md:space-y-16">
+              {experiences.map((experience, index) => (
+                <ExperienceCard3D key={index} experience={experience} index={index} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -11,6 +11,7 @@ const projects = [
     gradient: 'from-cyan-500/20 to-blue-600/20',
     accentColor: '185 100% 50%',
     icon: '🏠',
+    link: null,
   },
   {
     title: 'Hire Expert',
@@ -19,6 +20,7 @@ const projects = [
     gradient: 'from-purple-500/20 to-pink-600/20',
     accentColor: '280 80% 60%',
     icon: '💼',
+    link: null,
   },
   {
     title: 'Hospital Management System',
@@ -27,6 +29,7 @@ const projects = [
     gradient: 'from-green-500/20 to-emerald-600/20',
     accentColor: '160 80% 45%',
     icon: '🏥',
+    link: 'https://m-path-hospital-management-system.vercel.app/',
   },
   {
     title: 'Figma to Code Clones',
@@ -35,6 +38,7 @@ const projects = [
     gradient: 'from-orange-500/20 to-red-600/20',
     accentColor: '25 100% 55%',
     icon: '🎨',
+    link: 'https://figma-design-exact-copy.vercel.app/',
   },
 ];
 
@@ -147,14 +151,26 @@ function ProjectCard3D({ project, index }: { project: typeof projects[0]; index:
             </div>
 
             {/* Link */}
-            <motion.div
-              className="flex items-center gap-2 text-primary font-inter font-semibold group/link cursor-pointer w-fit"
-              whileHover={{ x: 5 }}
-              style={{ transform: "translateZ(30px)" }}
-            >
-              <span>View Project</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
-            </motion.div>
+            {project.link ? (
+              <motion.a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary font-inter font-semibold group/link cursor-pointer w-fit"
+                whileHover={{ x: 5 }}
+                style={{ transform: "translateZ(30px)" }}
+              >
+                <span>View Project</span>
+                <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1" />
+              </motion.a>
+            ) : (
+              <motion.div
+                className="flex items-center gap-2 text-muted-foreground font-inter font-semibold w-fit"
+                style={{ transform: "translateZ(30px)" }}
+              >
+                <span>Coming Soon</span>
+              </motion.div>
+            )}
           </div>
         </div>
       </motion.div>
