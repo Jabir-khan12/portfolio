@@ -3,14 +3,12 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
 const skills = [
-  { name: 'HTML', level: 95, category: 'Frontend', icon: '🌐' },
-  { name: 'CSS', level: 95, category: 'Frontend', icon: '🎨' },
-  { name: 'JavaScript', level: 92, category: 'Frontend', icon: '⚡' },
-  { name: 'React', level: 90, category: 'Frontend', icon: '⚛️' },
-  { name: 'Tailwind CSS', level: 90, category: 'Frontend', icon: '💨' },
-  { name: 'Node.js', level: 75, category: 'Backend', icon: '🟢' },
-  { name: 'Express.js', level: 70, category: 'Backend', icon: '🚂' },
-  { name: 'TypeScript', level: 70, category: 'Frontend', icon: '📘' },
+  { name: 'JavaScript', level: 95, category: 'Frontend', icon: '⚡' },
+  { name: 'React', level: 95, category: 'Frontend', icon: '⚛️' },
+  { name: 'Tailwind CSS', level: 95, category: 'Frontend', icon: '💨' },
+  { name: 'Node.js', level: 90, category: 'Backend', icon: '🟢' },
+  { name: 'Express.js', level: 90, category: 'Backend', icon: '🚂' },
+  { name: 'MongoDB', level: 90, category: 'Database', icon: '🍃' },
 ];
 
 function SkillCard3D({ skill, index }: { skill: typeof skills[0]; index: number }) {
@@ -180,7 +178,7 @@ export default function Skills() {
         >
           <h3 className="font-syne text-2xl font-semibold mb-8">Languages</h3>
           <div className="flex flex-wrap justify-center gap-4">
-            {['Urdu', 'Pashto', 'English'].map((lang, index) => (
+            {['English', 'Urdu', 'Pashto'].map((lang, index) => (
               <motion.span
                 key={lang}
                 initial={{ opacity: 0, scale: 0.8 }}

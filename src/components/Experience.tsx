@@ -8,7 +8,7 @@ const experiences = [
     title: 'MERN Stack Developer',
     company: 'SAT Software House',
     period: 'Oct 2025 - Present',
-    description: 'Working on full-stack development for Real Estate and Hire Expert projects, implementing user roles, property/job management, and dashboards.',
+    description: 'MERN Stack Developer experienced in building Real Estate and Hire-Expert platforms using MongoDB, Express.js, React, and Node.js, implementing role-based authentication, property/job management, booking systems, payments, and admin dashboards.',
     current: true,
   },
   {
