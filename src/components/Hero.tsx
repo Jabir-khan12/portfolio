@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowDown, Mail, MapPin, Phone, Download } from 'lucide-react';
+import profileImage from '@/assets/profile-image.jpeg';
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       {/* Background gradient overlay */}
       <div className="absolute inset-0 hero-gradient z-10" />
       
@@ -15,6 +16,23 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="space-y-6"
         >
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className="flex justify-center mb-6"
+          >
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-secondary rounded-full blur-md opacity-75" />
+              <img
+                src={profileImage}
+                alt="Jabir Khan"
+                className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-background"
+              />
+            </div>
+          </motion.div>
+
           {/* Greeting */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -46,7 +64,7 @@ export default function Hero() {
           >
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary" />
             <p className="font-syne text-xl md:text-2xl text-muted-foreground">
-              Full Stack Developer
+              MERN Stack Developer
             </p>
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary" />
           </motion.div>
@@ -82,10 +100,13 @@ export default function Hero() {
               <MapPin className="w-4 h-4" />
               <span>Islamabad, Pakistan</span>
             </span>
-            <span className="flex items-center gap-2">
+            <a
+              href="tel:+92315993523"
+              className="flex items-center gap-2 hover:text-primary transition-colors"
+            >
               <Phone className="w-4 h-4" />
               <span>+92 315 993523</span>
-            </span>
+            </a>
           </motion.div>
 
           {/* CTA Buttons */}
@@ -107,6 +128,14 @@ export default function Hero() {
               className="px-8 py-4 font-syne font-semibold text-foreground border border-border rounded-full hover:border-primary hover:text-primary transition-all hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)]"
             >
               Get In Touch
+            </a>
+            <a
+              href="/Jabir_Khan_Resume.pdf"
+              download
+              className="px-8 py-4 font-syne font-semibold text-foreground border border-border rounded-full hover:border-primary hover:text-primary transition-all hover:shadow-[0_0_20px_hsl(var(--primary)/0.2)] flex items-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              Download CV
             </a>
           </motion.div>
         </motion.div>

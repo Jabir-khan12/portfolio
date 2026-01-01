@@ -179,20 +179,26 @@ export default function Contact() {
                 Open for opportunities and collaborations
               </p>
               <div className="flex justify-center gap-4">
-                {[
-                  { icon: Linkedin, label: 'LinkedIn' },
-                  { icon: Github, label: 'GitHub' },
-                ].map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href="#"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 rounded-xl bg-muted/80 flex items-center justify-center cursor-pointer hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-colors"
-                  >
-                    <social.icon className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
-                  </motion.a>
-                ))}
+                <motion.a
+                  href="https://www.linkedin.com/in/jabir-khan-b9a54024b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-12 h-12 rounded-xl bg-muted/80 flex items-center justify-center cursor-pointer hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-colors"
+                >
+                  <Linkedin className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+                </motion.a>
+                <motion.a
+                  href="https://github.com/Jabir-khan12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -3 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-12 h-12 rounded-xl bg-muted/80 flex items-center justify-center cursor-pointer hover:bg-primary/20 border border-border/50 hover:border-primary/50 transition-colors"
+                >
+                  <Github className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
+                </motion.a>
               </div>
             </motion.div>
           </motion.div>
